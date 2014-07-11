@@ -1,0 +1,51 @@
+// Breakpoints, from smallest to biggest 
+$breakpointMap: (
+//size-name //min-breakpoint    //columns	//gutter
+xSmall:     (280px,             4,			  30px),
+small:      (480px,             4,			  30px),
+medium:     (750px,             8,			  30px),
+large:      (960px,             12,		  	30px),
+xLarge:     (1024px,            12,		  	30px)
+);
+
+
+
+//Media Mixin
+// $size - would be the name of the sizes
+// $modifier:
+//   up - mobile first
+//   only - for only that breakpoint
+//   down - desktop first
+@mixin media($size, $modifier: up) {
+  @if not index(map-keys($breakpointMap), $size) {
+    @warn "Warning: `#{size}` is not a valid breakpoint name.";
+  }
+  @else {
+    $first: false;
+    $last: false;
+    @if index(map-keys($breakpointMap), $size) == 1 { $first: true; }
+    @if index(map-keys($breakpointMap), $size) == length($breakpointMap) { $last: true; }
+    @if not($last) {
+      $sizeUp: nth(map-get($breakpointMap, nth(nth($breakpointMap, index(map-keys($breakpointMap), $size) + 1), 1)), 1) - 1 !global;
+    }
+    @if $modifier == only { 
+      @if $first { $modifier: down; }
+      @if $last { $modifier: up; }
+      @else {
+        $mediaBreaks: "and (min-width: #{nth(map-get($breakpointMap, $size), 1)}) and (max-width: #{$sizeUp})" !global;
+      }
+    }
+    @if $modifier == down {
+      @if $last { $mediaBreaks: ""; }
+      @else {
+        $mediaBreaks: "and (max-width: #{$sizeUp})" !global;
+      }
+    }
+    @if $modifier == up {
+      $mediaBreaks: "and (min-width: #{nth(map-get($breakpointMap, $size), 1)})" !global;
+    }
+    @media screen #{$mediaBreaks} {
+      @content;
+    }
+  }
+}
