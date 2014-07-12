@@ -1,14 +1,12 @@
 // Breakpoints, from smallest to biggest 
 $breakpointMap: (
 //size-name //min-breakpoint    //columns //gutter
-xSmall:     (280px,             4,        30px),
+xSmall: (280px,             4,        30px),
 small:      (480px,             4,        30px),
 medium:     (750px,             8,        30px),
 large:      (960px,             12,       30px),
 xLarge:     (1024px,            12,       30px)
 );
-
-
 
 //Media Mixin
 // $size - would be the name of the sizes
@@ -36,7 +34,7 @@ xLarge:     (1024px,            12,       30px)
       }
     }
     @if $modifier == down {
-      @if $last { $mediaBreaks: ""; }
+      @if $last { $mediaBreaks: "" !global; }
       @else {
         $mediaBreaks: "and (max-width: #{$sizeUp})" !global;
       }

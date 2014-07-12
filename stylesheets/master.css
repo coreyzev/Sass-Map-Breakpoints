@@ -1,0 +1,24 @@
+/* line 3, master.scss */
+foo { color: blue; }
+@media screen and (max-width: 479px) { /* line 3, master.scss */
+  foo { content: xSmall only; } }
+@media screen and (min-width: 480px) and (max-width: 749px) { /* line 3, master.scss */
+  foo { content: small only; } }
+@media screen and (min-width: 750px) and (max-width: 959px) { /* line 3, master.scss */
+  foo { content: medium only; } }
+@media screen and (min-width: 960px) and (max-width: 1023px) { /* line 3, master.scss */
+  foo { content: large only; } }
+@media screen and (min-width: 480px) { /* line 3, master.scss */
+  foo { content: small up; } }
+@media screen and (min-width: 750px) { /* line 3, master.scss */
+  foo { content: medium up; } }
+@media screen and (min-width: 960px) { /* line 3, master.scss */
+  foo { content: large up; } }
+@media screen and (max-width: 749px) { /* line 3, master.scss */
+  foo { content: small down; } }
+@media screen and (max-width: 959px) { /* line 3, master.scss */
+  foo { content: medium down; } }
+@media screen and (max-width: 1023px) { /* line 3, master.scss */
+  foo { content: large down; } }
+@media screen { /* line 3, master.scss */
+  foo { content: xLarge down; } }

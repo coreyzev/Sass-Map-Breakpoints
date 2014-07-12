@@ -1,0 +1,42 @@
+@import "map-breakpoints";
+
+foo {
+  color: blue;
+
+  @include media(xSmall, only) {
+    content: xSmall only;
+  }
+  @include media(small, only) {
+    content: small only;
+  }
+  @include media(medium, only) {
+    content: medium only;
+  }
+  @include media(large, only) {
+    content: large only;
+  }
+  
+  @include media(small, up) {
+    content: small up;
+  }
+  @include media(medium, up) {
+    content: medium up;
+  }
+  @include media(large, up) {
+    content: large up;
+  }
+  
+  @include media(small, down) {
+    content: small down;
+  }
+  @include media(medium, down) {
+    content: medium down;
+  }
+  @include media(large, down) {
+    content: large down;
+  }
+  
+  @include media(xLarge, down) {
+    content: xLarge down;
+  }
+}
