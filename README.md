@@ -36,6 +36,9 @@ $modifier:
    only - for only that breakpoint
    down - desktop first
 ````
+
+[Check out the results](https://github.com/coreyzev/Sass-Map-Breakpoints/blob/master/stylesheets/master.css)
+
 # Requirements
 
 Sass `"~>3.3.0"`"
