@@ -41,7 +41,7 @@ $modifier:
 
 # Requirements
 
-Sass `"~>3.3.0"`"
+Sass `"~>3.3.0"`
 
 If you plan on using Compass, you must use the most recent version: Compass `"~>1.0.0.alpha.20"`
 
