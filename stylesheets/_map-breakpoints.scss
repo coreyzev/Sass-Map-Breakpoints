@@ -15,7 +15,7 @@ xLarge:     (1024px,            12,       30px)
 //   only - for only that breakpoint
 //   down - desktop first
 @mixin media($size, $modifier: up) {
-  @if not index(map-keys($breakpointMap), $size) {
+  @if not(index(map-keys($breakpointMap), $size)) {
     @warn "Warning: `#{size}` is not a valid breakpoint name.";
   }
   @else {
